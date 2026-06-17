@@ -18,8 +18,8 @@ namespace API_Study_ETEC.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetFromJsonAsync<List<POST>>("");
-            return View();
+            var response = await client.GetFromJsonAsync<List<POST>>("https://jsonplaceholder.typicode.com/posts?_limit=6");
+            return View(response);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
